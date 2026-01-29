@@ -303,7 +303,8 @@ function updateUI() {
         userMenu.innerHTML = `
             <div class="user-info">
                 <span>Xin chào, ${state.user.name}</span>
-                ${state.user.role === 'admin' ? '<a href="/admin.html" class="btn btn-outline">Admin Dashboard</a>' : ''}
+                <a href="/dashboard.html" class="btn btn-outline">Dashboard</a>
+                ${state.user.role === 'admin' ? '<a href="/admin.html" class="btn btn-outline">Admin</a>' : ''}
                 <button class="btn btn-outline" onclick="logout()">
                     <i class="fas fa-sign-out-alt"></i> Đăng xuất
                 </button>

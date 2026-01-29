@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard - Chợ Cư Dân</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-store"></i>
+        <h1>Chợ Cư Dân</h1>
+      </div>
+      <nav class="nav">
+        <a href="/" class="nav-link" data-page="home"><i class="fas fa-home"></i> Trang chủ</a>
+        <a href="/dashboard.html" class="nav-link active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <div class="user-menu" id="userMenu"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section id="profileSection" class="page active">
+        <h2>Tài khoản của tôi</h2>
+        <div id="profileCard" class="panel">Đang tải thông tin...</div>
+      </section>
+
+      <section id="myOrders" class="page">
+        <h2>Đơn hàng của tôi</h2>
+        <div id="ordersList" class="orders-list">Đang tải đơn hàng...</div>
+      </section>
+
+      <section id="myProducts" class="page">
+        <h2>Sản phẩm của tôi</h2>
+        <div id="productsList">Đang tải...</div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container"><small>Chợ Cư Dân</small></div>
+  </footer>
+
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
