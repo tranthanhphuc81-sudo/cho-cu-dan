@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chợ Cư Dân - Mua nhanh, Bán gần, Tình thân gắn kết</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-store"></i>
+                <h1>Chợ Cư Dân</h1>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active" data-page="home">
+                    <i class="fas fa-home"></i> Trang chủ
+                </a>
+                <a href="#" class="nav-link" data-page="products">
+                    <i class="fas fa-box"></i> Sản phẩm
+                </a>
+                <a href="#" class="nav-link" data-page="orders">
+                    <i class="fas fa-shopping-cart"></i> Đơn hàng
+                </a>
+                <a href="#" class="nav-link" data-page="messages">
+                    <i class="fas fa-comments"></i> Tin nhắn
+                </a>
+                <div class="user-menu" id="userMenu">
+                    <button class="btn btn-primary" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Home Page -->
+            <div id="homePage" class="page active">
+                <section class="hero">
+                    <div class="hero-content">
+                        <h2>🏘️ Mua nhanh - Bán gần - Tình thân gắn kết</h2>
+                        <p>Kết nối cư dân trong khu dân cư, mua bán không phí ship, giao hàng tức thì</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>Cộng đồng hàng xóm</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-shipping-fast"></i>
+                                <span>Giao hàng siêu nhanh</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Tiết kiệm chi phí</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Categories -->
+                <section class="categories">
+                    <h3>Danh mục sản phẩm</h3>
+                    <div class="category-grid">
+                        <div class="category-card" data-category="Đồ ăn sáng">
+                            <i class="fas fa-bread-slice"></i>
+                            <span>Đồ ăn sáng</span>
+                        </div>
+                        <div class="category-card" data-category="Cơm văn phòng">
+                            <i class="fas fa-utensils"></i>
+                            <span>Cơm văn phòng</span>
+                        </div>
+                        <div class="category-card" data-category="Đồ ăn vặt">
+                            <i class="fas fa-cookie-bite"></i>
+                            <span>Đồ ăn vặt</span>
+                        </div>
+                        <div class="category-card" data-category="Chè & Tráng miệng">
+                            <i class="fas fa-ice-cream"></i>
+                            <span>Chè & Tráng miệng</span>
+                        </div>
+                        <div class="category-card" data-category="Thực phẩm tươi sống">
+                            <i class="fas fa-fish"></i>
+                            <span>Thực phẩm tươi</span>
+                        </div>
+                        <div class="category-card" data-category="Đồ handmade">
+                            <i class="fas fa-hand-sparkles"></i>
+                            <span>Đồ handmade</span>
+                        </div>
+                        <div class="category-card" data-category="Đồ cũ - Thanh lý">
+                            <i class="fas fa-recycle"></i>
+                            <span>Đồ cũ - Thanh lý</span>
+                        </div>
+                        <div class="category-card" data-category="Nhu yếu phẩm">
+                            <i class="fas fa-shopping-basket"></i>
+                            <span>Nhu yếu phẩm</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Featured Products -->
+                <section class="featured-products">
+                    <div class="section-header">
+                        <h3>Sản phẩm gần bạn</h3>
+                        <button class="btn btn-outline" id="addProductBtn">
+                            <i class="fas fa-plus"></i> Đăng bán
+                        </button>
+                    </div>
+                    <div id="productGrid" class="product-grid">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Products Page -->
+            <div id="productsPage" class="page">
+                <div class="page-header">
+                    <h2>Tất cả sản phẩm</h2>
+                    <div class="filters">
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="all">Tất cả danh mục</option>
+                            <option value="Đồ ăn sáng">Đồ ăn sáng</option>
+                            <option value="Cơm văn phòng">Cơm văn phòng</option>
+                            <option value="Đồ ăn vặt">Đồ ăn vặt</option>
+                            <option value="Chè & Tráng miệng">Chè & Tráng miệng</option>
+                            <option value="Thực phẩm tươi sống">Thực phẩm tươi</option>
+                            <option value="Đồ handmade">Đồ handmade</option>
+                            <option value="Đồ cũ - Thanh lý">Đồ cũ - Thanh lý</option>
+                            <option value="Nhu yếu phẩm">Nhu yếu phẩm</option>
+                        </select>
+                        <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm sản phẩm...">
+                    </div>
+                </div>
+                <div id="allProductsGrid" class="product-grid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Orders Page -->
+            <div id="ordersPage" class="page">
+                <div class="page-header">
+                    <h2>Đơn hàng của tôi</h2>
+                    <div class="tabs">
+                        <button class="tab active" data-type="buyer">Đơn mua</button>
+                        <button class="tab" data-type="seller">Đơn bán</button>
+                    </div>
+                </div>
+                <div id="ordersList" class="orders-list">
+                    <!-- Orders will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Messages Page -->
+            <div id="messagesPage" class="page">
+                <div class="page-header">
+                    <h2>Tin nhắn</h2>
+                </div>
+                <div class="messages-container">
+                    <div class="conversations-list" id="conversationsList">
+                        <div class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <p>Chưa có tin nhắn nào</p>
+                        </div>
+                    </div>
+                    <div class="chat-area" id="chatArea">
+                        <div class="empty-chat">
+                            <i class="fas fa-comments"></i>
+                            <p>Chọn một cuộc trò chuyện để bắt đầu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Đăng nhập / Đăng ký</h2>
+            <div class="tabs">
+                <button class="tab active" data-form="login">Đăng nhập</button>
+                <button class="tab" data-form="register">Đăng ký</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Đăng nhập
+                </button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label>Họ tên</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <input type="password" name="password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label>Tòa nhà / Khu phố</label>
+                    <input type="text" name="building" required>
+                </div>
+                <div class="form-group">
+                    <label>Tầng</label>
+                    <input type="text" name="floor">
+                </div>
+                <div class="form-group">
+                    <label>Số căn hộ</label>
+                    <input type="text" name="apartmentNumber">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Đăng ký
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Đăng bán sản phẩm</h2>
+            <form id="addProductForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Tên sản phẩm *</label>
+                    <input type="text" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label>Mô tả *</label>
+                    <textarea name="description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Danh mục *</label>
+                    <select name="category" required>
+                        <option value="">Chọn danh mục</option>
+                        <option value="Đồ ăn sáng">Đồ ăn sáng</option>
+                        <option value="Cơm văn phòng">Cơm văn phòng</option>
+                        <option value="Đồ ăn vặt">Đồ ăn vặt</option>
+                        <option value="Chè & Tráng miệng">Chè & Tráng miệng</option>
+                        <option value="Thực phẩm tươi sống">Thực phẩm tươi sống</option>
+                        <option value="Đồ handmade">Đồ handmade</option>
+                        <option value="Đồ cũ - Thanh lý">Đồ cũ - Thanh lý</option>
+                        <option value="Nhu yếu phẩm">Nhu yếu phẩm</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Giá (VNĐ) *</label>
+                        <input type="number" name="price" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Số lượng *</label>
+                        <input type="number" name="stock" required min="1" value="1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Hình ảnh (tối đa 5 ảnh)</label>
+                    <input type="file" name="images" multiple accept="image/*" max="5">
+                </div>
+                <div class="form-group">
+                    <label>Phương thức giao hàng</label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="deliveryOptions" value="Tự đến lấy">
+                            Tự đến lấy
+                        </label>
+                        <label>
+                            <input type="checkbox" name="deliveryOptions" value="Giao tận nơi">
+                            Giao tận nơi
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phí giao hàng (VNĐ)</label>
+                        <input type="number" name="deliveryFee" min="0" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Giảm giá nếu tự lấy (VNĐ)</label>
+                        <input type="number" name="pickupDiscount" min="0" value="0">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Đăng sản phẩm
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productDetailModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <div id="productDetailContent">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Đặt hàng</h2>
+            <form id="orderForm">
+                <input type="hidden" id="orderProductId" name="productId">
+                <div id="orderProductInfo" class="order-product-info">
+                    <!-- Product info will be loaded here -->
+                </div>
+                <div class="form-group">
+                    <label>Số lượng *</label>
+                    <input type="number" name="quantity" id="orderQuantity" required min="1" value="1">
+                </div>
+                <div class="form-group">
+                    <label>Phương thức giao hàng *</label>
+                    <select name="deliveryMethod" id="orderDeliveryMethod" required>
+                        <option value="">Chọn phương thức</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Phương thức thanh toán *</label>
+                    <select name="paymentMethod" required>
+                        <option value="Tiền mặt">Tiền mặt khi nhận hàng</option>
+                        <option value="Chuyển khoản">Chuyển khoản ngân hàng</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Ghi chú (không bắt buộc)</label>
+                    <textarea name="notes" rows="2" placeholder="Ví dụ: Giao buổi chiều, không cay..."></textarea>
+                </div>
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Tổng tiền hàng:</span>
+                        <span id="orderSubtotal">0 ₫</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Phí giao hàng:</span>
+                        <span id="orderDeliveryFee">0 ₫</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Giảm giá:</span>
+                        <span id="orderDiscount">0 ₫</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Tổng thanh toán:</span>
+                        <span id="orderTotal">0 ₫</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-shopping-cart"></i> Xác nhận đặt hàng
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

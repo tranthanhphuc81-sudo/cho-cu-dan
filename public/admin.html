@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Dashboard - Chợ Cư Dân</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <i class="fas fa-store"></i>
+          <h1>Chợ Cư Dân</h1>
+        </div>
+        <nav class="nav">
+          <a href="/" class="nav-link" data-page="home"><i class="fas fa-home"></i> Trang chủ</a>
+          <a href="/admin.html" class="nav-link active"><i class="fas fa-user-shield"></i> Admin</a>
+          <div class="user-menu" id="userMenu">
+            <a id="backBtn" href="/" class="btn">Quay lại</a>
+            <button class="btn btn-primary" id="loginBtn">
+              <i class="fas fa-sign-in-alt"></i> Đăng nhập
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="login-section">
+        <h2>Đăng nhập</h2>
+        <form id="login-form">
+          <label>Email<br><input type="email" name="email" required></label><br>
+          <label>Mật khẩu<br><input type="password" name="password" required></label><br>
+          <button type="submit">Đăng nhập</button>
+        </form>
+        <div id="login-message" class="message"></div>
+      </section>
+
+      <section id="dashboard" style="display:none">
+        <nav>
+          <button id="tab-users" class="active">Users</button>
+          <button id="tab-orders">Orders</button>
+        </nav>
+
+        <div id="panel-users" class="panel">
+          <h3>Người dùng</h3>
+          <table id="users-table">
+            <thead>
+              <tr><th>Name</th><th>Email</th><th>Role</th><th>Verified</th><th>Actions</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div id="users-message" class="message"></div>
+        </div>
+
+        <div id="panel-orders" class="panel" style="display:none">
+          <h3>Đơn hàng</h3>
+          <table id="orders-table">
+            <thead>
+              <tr><th>Order#</th><th>Buyer</th><th>Seller</th><th>Status</th><th>Total</th><th>Created</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div id="orders-message" class="message"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Chợ Cư Dân - Admin</small>
+    </footer>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
