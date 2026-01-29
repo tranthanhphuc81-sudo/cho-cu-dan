@@ -56,9 +56,67 @@ async function loadOrders(){
   }catch(err){ el.textContent = 'Lỗi tải đơn hàng'; }
 }
 
+// Tab handling
+function switchTab(tab){
+  document.querySelectorAll('.tabs .tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`.tabs .tab[data-tab="${tab}"]`).classList.add('active');
+  if(tab === 'profile') document.getElementById('profileSection').classList.add('active');
+  if(tab === 'orders') { document.getElementById('myOrders').classList.add('active'); loadOrders(); }
+  if(tab === 'products') { document.getElementById('myProducts').classList.add('active'); loadProducts(); }
+}
+
+document.querySelectorAll('.tabs .tab').forEach(t=> t.addEventListener('click', (e)=> switchTab(e.target.dataset.tab)));
+
+document.getElementById('addProductBtnDashboard').addEventListener('click', ()=>{
+  // reuse add product modal from main app (if present)
+  const modal = document.getElementById('addProductModal');
+  if(modal){ modal.classList.add('active'); }
+  else { window.location.href = '/'; }
+});
+
+// Load products for logged in seller
+async function loadProducts(){
+  const el = document.getElementById('productsList');
+  try{
+    el.textContent = 'Đang tải...';
+    const profileRes = await api('/api/users/profile');
+    if(!profileRes.success) return el.textContent = 'Không thể tải sản phẩm';
+    const userId = profileRes.user._id;
+    const res = await api(`/api/products/seller/${userId}`);
+    if(res.success){
+      if(!res.products || res.products.length === 0) return el.innerHTML = '<p>Chưa có sản phẩm nào</p>';
+      el.innerHTML = res.products.map(p=>`
+        <div class="panel" style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <strong>${p.title}</strong><br>
+            <small>${p.category || ''} — ${p.price} ₫</small>
+          </div>
+          <div>
+            <a href="/" class="btn btn-outline">Sửa</a>
+            <button class="btn" data-id="${p._id}" onclick="deleteProduct(event)">Xóa</button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      el.textContent = 'Không thể tải sản phẩm';
+    }
+  }catch(err){ el.textContent = 'Lỗi tải sản phẩm'; }
+}
+
+window.deleteProduct = async function(ev){
+  const id = ev.target.dataset.id;
+  if(!confirm('Bạn có chắc muốn xóa sản phẩm này?')) return;
+  try{
+    await api(`/api/products/${id}`, { method: 'DELETE' });
+    loadProducts();
+  }catch(err){ alert('Không thể xóa sản phẩm'); }
+}
+
 // Initialize dashboard
 (async ()=>{
   if(!getToken()){ window.location.href = '/'; return; }
   await loadProfile();
-  await loadOrders();
+  // Default to profile tab
+  switchTab('profile');
 })();

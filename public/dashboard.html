@@ -23,6 +23,12 @@
 
   <main class="main-content">
     <div class="container">
+      <div class="tabs">
+        <button class="tab active" data-tab="profile">Tài khoản</button>
+        <button class="tab" data-tab="orders">Đơn hàng</button>
+        <button class="tab" data-tab="products">Sản phẩm</button>
+      </div>
+
       <section id="profileSection" class="page active">
         <h2>Tài khoản của tôi</h2>
         <div id="profileCard" class="panel">Đang tải thông tin...</div>
@@ -34,7 +40,12 @@
       </section>
 
       <section id="myProducts" class="page">
-        <h2>Sản phẩm của tôi</h2>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <h2>Sản phẩm của tôi</h2>
+          <div>
+            <button id="addProductBtnDashboard" class="btn btn-primary">Đăng sản phẩm</button>
+          </div>
+        </div>
         <div id="productsList">Đang tải...</div>
       </section>
     </div>
