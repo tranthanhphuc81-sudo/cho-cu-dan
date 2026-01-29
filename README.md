@@ -1,6 +1,13 @@
+[![Build Status](https://github.com/tranthanhphuc81-sudo/cho-cu-dan/actions/workflows/ci.yml/badge.svg)](https://github.com/tranthanhphuc81-sudo/cho-cu-dan/actions)
+[![License](https://img.shields.io/github/license/tranthanhphuc81-sudo/cho-cu-dan)](LICENSE)
+
 # 🏘️ CHỢ CƯ DÂN (Neighborhood Market)
 
 ## Slogan: Mua nhanh - Bán gần - Tình thân gắn kết
+
+> CI: Tests run automatically on push and pull requests (GitHub Actions).
+
+
 
 Ứng dụng thương mại điện tử "siêu địa phương" (Hyper-local), kết nối cư dân trong khu dân cư để mua bán hàng hóa, thực phẩm và trao đổi đồ cũ với lợi thế:
 - ✅ Không tốn phí ship (hoặc rất thấp)
