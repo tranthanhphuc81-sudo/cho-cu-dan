@@ -363,6 +363,37 @@ body {
     box-shadow: var(--shadow);
 }
 
+/* Dashboard product grid and cards */
+.dashboard-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.dashboard-product-card {
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dashboard-product-card .meta {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.dashboard-empty {
+    padding: 18px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+
 .order-header {
     display: flex;
     justify-content: space-between;

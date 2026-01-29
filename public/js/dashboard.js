@@ -85,19 +85,22 @@ async function loadProducts(){
     const userId = profileRes.user._id;
     const res = await api(`/api/products/seller/${userId}`);
     if(res.success){
-      if(!res.products || res.products.length === 0) return el.innerHTML = '<p>Chưa có sản phẩm nào</p>';
-      el.innerHTML = res.products.map(p=>`
-        <div class="panel" style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <strong>${p.title}</strong><br>
-            <small>${p.category || ''} — ${p.price} ₫</small>
+      if(!res.products || res.products.length === 0) return el.innerHTML = '<div class="dashboard-empty"><p>Chưa có sản phẩm nào</p></div>';
+      el.innerHTML = `<div class="dashboard-products">` + res.products.map(p=>`
+        <div class="dashboard-product-card">
+          <div style="display:flex;gap:12px;align-items:center">
+            <img src="${p.images && p.images[0] ? '/' + p.images[0] : 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22240%22 height=%22140%22%3E%3Crect fill=%22%23f3f4f6%22 width=%22240%22 height=%22140%22/%3E%3C/text%3E%3C/svg%3E'}" alt="" style="width:80px;height:60px;object-fit:cover;border-radius:8px;background:#f3f4f6">
+            <div>
+              <strong>${p.title}</strong>
+              <div class="meta">${p.category || ''} — ${p.price} ₫</div>
+            </div>
           </div>
-          <div>
+          <div style="display:flex;justify-content:flex-end;gap:8px">
             <a href="/" class="btn btn-outline">Sửa</a>
             <button class="btn" data-id="${p._id}" onclick="deleteProduct(event)">Xóa</button>
           </div>
         </div>
-      `).join('');
+      `).join('') + `</div>`;
     } else {
       el.textContent = 'Không thể tải sản phẩm';
     }

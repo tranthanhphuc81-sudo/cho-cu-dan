@@ -51,6 +51,58 @@
     </div>
   </main>
 
+  <!-- Add Product Modal (copied from index.html for dashboard users) -->
+  <div id="addProductModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Đăng bán sản phẩm</h2>
+        <form id="addProductForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Tên sản phẩm *</label>
+                <input type="text" name="title" required>
+            </div>
+            <div class="form-group">
+                <label>Mô tả *</label>
+                <textarea name="description" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Danh mục *</label>
+                <select name="category" required>
+                    <option value="">Chọn danh mục</option>
+                    <option value="Đồ ăn sáng">Đồ ăn sáng</option>
+                    <option value="Cơm văn phòng">Cơm văn phòng</option>
+                    <option value="Đồ ăn vặt">Đồ ăn vặt</option>
+                    <option value="Chè & Tráng miệng">Chè & Tráng miệng</option>
+                    <option value="Thực phẩm tươi sống">Thực phẩm tươi</option>
+                    <option value="Đồ handmade">Đồ handmade</option>
+                    <option value="Đồ cũ - Thanh lý">Đồ cũ - Thanh lý</option>
+                    <option value="Nhu yếu phẩm">Nhu yếu phẩm</option>
+                    <option value="Khác">Khác</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Giá (VNĐ) *</label>
+                    <input type="number" name="price" required min="0">
+                </div>
+                <div class="form-group">
+                    <label>Số lượng *</label>
+                    <input type="number" name="stock" required min="1" value="1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Hình ảnh (tối đa 5 ảnh)</label>
+                <input type="file" name="images" multiple accept="image/*" max="5">
+            </div>
+            <div class="form-group">
+                <label>Phí giao hàng (VNĐ)</label>
+                <input type="number" name="deliveryFee" min="0" value="0">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Đăng sản phẩm</button>
+        </form>
+    </div>
+  </div>
+
   <footer>
     <div class="container"><small>Chợ Cư Dân</small></div>
   </footer>
