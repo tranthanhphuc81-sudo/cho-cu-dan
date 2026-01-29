@@ -75,6 +75,17 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
+
+// Handle server errors (e.g., port already in use) to give clearer message and exit gracefully
+server.on('error', (err) => {
+  if (err && err.code === 'EADDRINUSE') {
+    console.error(`❌ Port ${PORT} is already in use. Stop the process that is using it or set a different PORT environment variable.`);
+    process.exit(1);
+  }
+  console.error('Server error:', err);
+  process.exit(1);
+});
+
 if (process.env.NODE_ENV !== 'test') {
   server.listen(PORT, () => {
     console.log(`🚀 Server đang chạy tại http://localhost:${PORT}`);
