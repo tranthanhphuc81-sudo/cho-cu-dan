@@ -1,14 +1,20 @@
-body{font-family:Arial,Helvetica,sans-serif;background:#f6f7fb;color:#222}
-.container{max-width:1000px;margin:24px auto;background:#fff;padding:18px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-header{display:flex;justify-content:space-between;align-items:center}
-header h1{margin:0}
-.header-actions{display:flex;align-items:center;gap:8px}
-#backBtn{padding:8px 12px;border:1px solid #ddd;background:#fafafa;border-radius:4px;text-decoration:none;color:#222}
-nav{margin:12px 0}
-nav button{margin-right:8px;padding:8px 12px;border:1px solid #ddd;background:#fafafa;border-radius:4px;cursor:pointer}
-nav button.active{background:#007bff;color:#fff;border-color:#007bff}
-table{width:100%;border-collapse:collapse}
-th,td{padding:8px;border-bottom:1px solid #eee;text-align:left}
-.message{margin-top:8px;color:#555}
-button.small{padding:6px 8px;font-size:13px}
-footer{margin-top:18px;text-align:center;color:#888}
+/* Admin-specific styles (minimal overrides) */
+
+/* Use site-wide container and header styles from /css/style.css */
+
+/* Adjust main login/dashboard width */
+#login-section { max-width: 520px; margin: 24px auto; }
+#login-section form { background: white; padding: 18px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+
+/* Dashboard panels spacing */
+.panel { background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 12px; }
+
+/* Ensure admin nav link is highlighted consistently */
+.nav-link.active { background: var(--primary); color: white; }
+
+/* Small screens tweaks */
+@media (max-width: 640px) {
+  .nav { gap: 8px; }
+  .logo h1 { font-size: 1.1rem; }
+  .nav-link { padding: 6px 8px; }
+}

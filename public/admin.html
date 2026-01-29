@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
-  <div class="container">
     <header class="header">
       <div class="container">
         <div class="logo">
@@ -28,7 +27,8 @@
       </div>
     </header>
 
-    <main>
+    <main class="main-content">
+      <div class="container">
       <section id="login-section">
         <h2>Đăng nhập</h2>
         <form id="login-form">
@@ -67,12 +67,14 @@
           <div id="orders-message" class="message"></div>
         </div>
       </section>
+      </div>
     </main>
 
     <footer>
-      <small>Chợ Cư Dân - Admin</small>
+      <div class="container">
+        <small>Chợ Cư Dân - Admin</small>
+      </div>
     </footer>
-  </div>
 
   <script src="/js/admin.js"></script>
 </body>
